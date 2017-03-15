@@ -1,6 +1,9 @@
 # angular-tag-cloud changelog
 
 ## v0.4.0 (14/03/2017)
+- Fix - redraw cloud when data changes.
+
+## v0.4.0 (14/03/2017)
 - Added 'fluid' option.
 
 ## v0.3.3 (24/01/2017)

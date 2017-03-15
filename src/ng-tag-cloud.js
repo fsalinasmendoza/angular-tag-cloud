@@ -32,12 +32,6 @@ ngTagCloud.directive("ngTagCloud",["$timeout","$log","$window",function($timeout
                $log.error("ng-tag-cloud: No data passed. Please pass tags data as json. <ng-tag-cloud cloud-data='tagsJSON'></ng-tag-cloud\nFor more info see here: https://github.com/zeeshanhyder/angular-tag-cloud");
                return;
            }
-           $scope.$watchCollection('[cloudData]', function () {
-               $timeout(function(){
-                   buildOptions();
-                   drawWordCloud();
-               }, 10);
-           });
 
            /** Auto generate width, height and delayMode options */
            var autoOptions = function() {
@@ -51,6 +45,16 @@ ngTagCloud.directive("ngTagCloud",["$timeout","$log","$window",function($timeout
              };
            }
            var options;
+
+           $scope.$watchCollection('[cloudData]', function () {
+               if ($scope.fluid) {
+                   options = autoOptions();
+               }
+               $timeout(function(){
+                   buildOptions();
+                   drawWordCloud();
+               }, 10);
+           });
 
            if ($scope.fluid) {
               options = autoOptions();
