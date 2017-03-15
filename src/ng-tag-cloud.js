@@ -13,13 +13,13 @@
 
 var ngTagCloud = angular.module("ngTagCloud",[]);
 
-ngTagCloud.directive("ngTagCloud",["$timeout","$log",function($timeout,$log){
+ngTagCloud.directive("ngTagCloud",["$timeout","$log","$window",function($timeout,$log,$window){
    return {
        restrict: 'EA',
        scope: {
-
            cloudWidth: '=?',
            cloudHeight: '=?',
+           fluid: '=?',
            cloudOverflow: '=?',
            cloudData: '=',
            delayedMode:'=?',
@@ -39,12 +39,40 @@ ngTagCloud.directive("ngTagCloud",["$timeout","$log",function($timeout,$log){
                }, 10);
            });
 
-           //default options
-           var options = {
-               width: $scope.cloudWidth?$scope.cloudWidth:"300",
-               height: $scope.cloudHeight?$scope.cloudHeight:"300",
+           /** Auto generate width, height and delayMode options */
+           var autoOptions = function() {
+             return {
+               // Width equal to its parent width.
+               width: element.parent()[0].offsetWidth,
+               // Estimate height. In a 300x300 around 18 words can be displayed. This estimation can be
+               // improved, i.e., considering the average word length and the average font size.
+               height: 90000.0 / element.parent()[0].offsetWidth * $scope.cloudData.length / 18,
                delayedMode: ($scope.delayedMode!==undefined)?$scope.delayedMode:($scope.cloudData.length > 50)
-           };
+             };
+           }
+           var options;
+
+           if ($scope.fluid) {
+              options = autoOptions();
+
+              // Redraw if the window is resized horizontally.
+              angular.element($window).bind('resize', function() {
+                opt = autoOptions();
+                if (opt.width != options.width) {
+                  $timeout(function(){
+                    options = opt;
+                    buildOptions();
+                    drawWordCloud();
+                  }, 10);
+                }
+              });
+           } else {
+              options = {
+                 width: $scope.cloudWidth?$scope.cloudWidth:"300",
+                 height: $scope.cloudHeight?$scope.cloudHeight:"300",
+                 delayedMode: ($scope.delayedMode!==undefined)?$scope.delayedMode:($scope.cloudData.length > 50)
+             };
+           }
 
            //Enable to execute function after cloud rendered
            options.afterCloudRender = function() {
@@ -70,6 +98,7 @@ ngTagCloud.directive("ngTagCloud",["$timeout","$log",function($timeout,$log){
                        x: (options.width / 2.0),
                        y: (options.height / 2.0)
                    },
+                   fluid: false,
                    delayedMode: options.delayedMode,
                    shape: false, // It defaults to elliptic shape
                    encodeURI: true,
