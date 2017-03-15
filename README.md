@@ -1,14 +1,14 @@
 # angular-tag-cloud
-Create simple and clean tag clouds in angular with this library. This library is jQuery-less, for-angular port of [Lucaong's jQCloud](https://github.com/lucaong/jQCloud) library.
+Create simple and clean tag clouds in angular with this library. This library is a fork of [zeeshanhyder's angular-tag-cloud](https://github.com/lucaong/jQCloud) library, with responsive behaviour.
 
 ## Installation
 
 ### General
 - Copy/move `ng-tag-cloud.js` from src dir in the package to your project dir
 - In your Angular app, add a dependency to your module as below:
-  
-  `angular.module('yourApp',['ngTagCloud',...]');` 
-  
+
+  `angular.module('yourApp',['ngTagCloud',...]');`
+
 ### bower
 In your project dir, type the following command:
 
@@ -45,7 +45,7 @@ I have included a default `css` file for default styling. Include it in your fil
 <link rel="stylesheet" href="[bower_components | node_modules]/angular-tag-cloud/src/css/ng-tag-cloud.css">
 ```
 You can easily override it with your custom `css` class.
- 
+
 ## Usage
 
 In your html file, use the component like this:
@@ -72,6 +72,12 @@ $scope.data = [
       ];
 ```
 
+Alternatively you can configure the cloud to adjust its size automatically to its container size:
+
+```html
+<ng-tag-cloud fluid="true" cloud-data="data"></ng-tag-cloud>
+```
+
 You can control whether there will be delay in word drawing like this:
 ```html
 <ng-tag-cloud  cloud-width="250" cloud-height="250" delayed-mode="false"></ng-tag-cloud>
@@ -87,6 +93,6 @@ You can pass function that will invoke after word cloud is rendered:
 
 ## Examples
 
-Please check the examples directory to get the exact idea of what i am talking about. It's always better to check examples. 
+Please check the examples directory to get the exact idea of what i am talking about. It's always better to check examples.
 
 Check code example [here](https://github.com/zeeshanhyder/angular-tag-cloud/tree/master/examples).
