@@ -1,5 +1,7 @@
 # angular-tag-cloud changelog
 
+## v0.4.0 (14/03/2017)
+- Added 'fluid' option.
 
 ## v0.3.3 (24/01/2017)
 - Expose "afterCloudRender" function call to user (on-rendered attribute).

@@ -13,7 +13,7 @@ Create simple and clean tag clouds in angular with this library. This library is
 In your project dir, type the following command:
 
 ```sh
-$ bower install angular-tag-cloud
+$ bower install fsalinasmendoza-angular-tag-cloud
 ```
 Then add a `<script>` in your project `html`:
 
@@ -29,7 +29,7 @@ And finally in your Angular app, add the dependency as:
 In your project dir, run the following command:
 
 ```sh
-$ npm install angular-tag-cloud
+$ npm install fsalinasmendoza-angular-tag-cloud
 ```
 Then `require()` in your project source as:
 

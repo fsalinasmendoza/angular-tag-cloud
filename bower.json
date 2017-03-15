@@ -1,11 +1,11 @@
 {
-  "name": "angular-tag-cloud",
-  "version": "0.3.3",
-  "homepage": "https://github.com/zeeshanhyder/angular-tag-cloud",
+  "name": "fsalinasmendoza-angular-tag-cloud",
+  "version": "0.4.0",
+  "homepage": "https://github.com/fsalinasmendoza/angular-tag-cloud",
   "authors": [
-    "Zeeshan <hyder.zeeshan@live.com>"
+    "Franco Salinas Mendoza <franco.salinas@outlook.com>"
   ],
-  "description": "Create simple clean tag clouds in your Angular app. No other dependencies required.",
+  "description": "Create responsive tag clouds in your Angular app. No other dependencies required.",
   "main": "src/ng-tag-cloud.js",
   "moduleType": [
     "amd",
