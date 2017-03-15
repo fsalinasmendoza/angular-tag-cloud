@@ -1,6 +1,6 @@
 {
-  "name": "angular-tag-cloud",
-  "version": "0.3.3",
+  "name": "fsalinasmendoza-angular-tag-cloud",
+  "version": "0.4.0",
   "description": "Create simple clean tag clouds in your Angular app. No other dependencies required.",
   "main": "dist/ng-tag-cloud-module.js",
   "directories": {
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zeeshanhyder/angular-tag-cloud.git"
+    "url": "git+https://github.com/fsalinasmendoza/angular-tag-cloud.git"
   },
   "keywords": [
     "angular",
@@ -22,12 +22,12 @@
     "angular-tag-cloud",
     "tags"
   ],
-  "author": "Zeeshan Hyder <hyder.zeeshan@live.com> (https://github.com/zeeshanhyder)",
+  "author": "Franco Salinas <franco.salinas@outlook.com> (https://github.com/fsalinasmendoza)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zeeshanhyder/angular-tag-cloud/issues"
+    "url": "https://github.com/fsalinasmendoza/angular-tag-cloud/issues"
   },
-  "homepage": "https://github.com/zeeshanhyder/angular-tag-cloud#readme",
+  "homepage": "https://github.com/fsalinasmendoza/angular-tag-cloud#readme",
   "devDependencies": {
     "minifier": "^0.8.0"
   }
